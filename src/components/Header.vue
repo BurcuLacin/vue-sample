@@ -1,29 +1,37 @@
 <template>
   <header class="header">
     <container class="header-inner">
+
+      <!-- logo -->
+
       <router-link to="/" class="logo">
         Instagram
       </router-link>
 
+      <!-- search -->
+
       <form class="search">
         <input type="text" placeholder="Search" />
       </form>
-<!-- v-if="$route.name === '/'" -->
+      
+      <!-- navigation -->
+
       <nav class="navigation">
         <router-link to="/">
-          <IconHomeFill v-if="$route.name === 'Home'"/>
+          <IconHomeFill v-if="$route.name === 'Home'" />
           <IconHome v-else />
         </router-link>
         <router-link to="/explore">
-        <IconExploreFill v-if="$route.name === 'Explore'"/>
-        <IconExplore v-else />
+          <IconExploreFill v-if="$route.name === 'Explore'" />
+          <IconExplore v-else />
         </router-link>
         <router-link to="/direct">
-        <IconDirectFill v-if="$route.name === 'Direct'"/>
-        <IconDirect v-else/>
+          <IconDirectFill v-if="$route.name === 'Direct'" />
+          <IconDirect v-else />
         </router-link>
         <router-link to="/profile">Profile</router-link>
       </nav>
+
     </container>
   </header>
 </template>
@@ -52,25 +60,41 @@ export default {
 </script>
 
 <style lang="less" scoped>
-header {
+.header {
   border-bottom: 1px solid rgb(var(--b6a));
- 
+  background-color: white;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 90;
 }
 
 .header-inner {
-  display: grid;
+  height: var(--header-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ @media (--t) {
+    display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  height: 60px;
+ }
 }
 
 .logo {
-  font-size: 1.6rem;
-  font-weight: bold;
+  @media (--t) {
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
 }
 
 .search {
-  text-align: center;
+  display: none;
+  @media (--t) {
+    display: block;
+    text-align: center;
+  }
 
   input {
     width: 215px;
@@ -82,13 +106,29 @@ header {
   }
 }
 
-.navigation{
+.navigation {
+  z-index:90;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  border-top: 1px solid rgb(var(--b6a));
+  height: 80px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
-  a{
-    margin-right: 20px;
+
+  @media (--t) {
+    height: auto;
+    border:0;
+    position: static;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    a {
+      margin-right: 20px;
+    }
   }
 }
-
 </style>
