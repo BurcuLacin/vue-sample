@@ -1,27 +1,17 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <div class="App">
+    <MasterHeader/>
     <router-view />
   </div>
 </template>
 
-<style lang="less">
-#app {
-  text-align: center;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script >
+import MasterHeader from './components/Header'
+export default{
+  name: "App",
+  components: {
+      MasterHeader
   }
 }
-</style>
+</script>
+
