@@ -1,17 +1,30 @@
 <template>
   <div class="App">
-    <MasterHeader/>
-    <router-view />
+    <MasterHeader />
+
+    <main class="main">
+      <container>
+      <router-view />
+      </container>
+    </main>
   </div>
 </template>
 
-<script >
+<script>
+import Container from './components/Container.vue'
 import MasterHeader from './components/Header'
-export default{
-  name: "App",
+export default {
+  name: 'App',
   components: {
-      MasterHeader
+    MasterHeader,
+    Container
   }
 }
 </script>
 
+    Container
+<style lang="less" scoped>
+.main {
+  padding-top: 40px;
+}
+</style>
